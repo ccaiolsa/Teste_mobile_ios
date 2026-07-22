@@ -1,16 +1,13 @@
-const { expect } = require('@wdio/globals')
-const LoginPage = require('../pageobjects/login.page')
-const SecurePage = require('../pageobjects/secure.page')
+import 'dotenv/config'
+import { $, expect } from '@wdio/globals'
+import home from '../pageobjects/home.page.js'
+import login from '../pageobjects/login.page.js'
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open()
+describe('Funcionalidade login', () => {
+    it('Deve realizar login com credenciais corretas', async () => {
+        await login.realizarLogin(process.env.USER_EMAIL, process.env.USER_PASS)
+        await home.profileTabe.click()
 
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveText(
-            expect.stringContaining('You logged into a secure area!'))
-        await expect(SecurePage.flashAlert).toMatchElementSnapshot('flashAlert')
     })
 })
 
