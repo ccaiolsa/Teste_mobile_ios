@@ -10,7 +10,8 @@
     "appium-uiautomator2-driver": "^8.1.0"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "test:report":"npm run test && allure generate allure-results --clean -o allure-report"
   },
   "dependencies": {
     "dotenv": "^17.4.2"

@@ -63,9 +63,9 @@ export const config = {
         "browserName": "Chorme",
         "appium:options": {
             "automationName": "UiAutomator2",
-            "platformVersion": "16.0",
+            "platformVersion": "11.0",
             "app": "ebac-store-mobile-tests/app/ebacshop.apks/ebacshop.apks",
-            "deviceName": "Pixel 7",
+            "deviceName": "nightwatch-android-11",
             "chromedriverAutodownload": true,
             "chromedriverExecutable": 'chromedriver-mobile/chromedriver.exe'
         }

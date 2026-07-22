@@ -1,3 +1,4 @@
 node_modules
 .env
 ebac-store-mobile-tests
+allurer-results
