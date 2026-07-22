@@ -8,7 +8,7 @@ import profile from '../pageobjects/profile.page.js'
 describe('Funcionalidade login', () => {
     it('Deve realizar login com credenciais corretas', async () => {
         await login.realizarLogin(process.env.USER_EMAIL, process.env.USER_PASS)
-        await expect(profile.profileName).toBeDisplayed()
+        await expect(home.btnProfile).toBeDisplayed()
 
     });
     

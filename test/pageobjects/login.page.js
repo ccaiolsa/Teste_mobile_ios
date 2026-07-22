@@ -19,7 +19,6 @@ class LoginPage{
     }
 
     async realizarLogin(email, pass){
-        await home.acessarProfile()
 
         await this.userEmail.waitForDisplayed()
         await this.userEmail.setValue(email)
@@ -30,8 +29,6 @@ class LoginPage{
         await this.btnLogin.waitForDisplayed()
         await this.btnLogin.click()
 
-        await browser.pause(3000)
-        await home.acessarProfile()
     }
 
 }

@@ -3,6 +3,7 @@ import home from './home.page.js'
 
 class CadastroPage{
 
+    // Cadastro de novo usuário
     get firstName () {
         return $('android=new UiSelector().resourceId("firstName")')
     };
@@ -26,6 +27,35 @@ class CadastroPage{
     };
     get btnSubmit(){
         return $('android=new UiSelector().resourceId("create")')
+    };
+
+    // Cadastro de endereço
+    get addName(){
+        return $('android=new UiSelector().text("Enter your name")')
+
+    };
+    get addNumber(){
+        return $('android=new UiSelector().text("Enter your mobile number")')
+        
+    };
+    get address(){
+        return $('android=new UiSelector().text("Enter your address")')
+        
+    };
+    get addCity(){
+        return $('android=new UiSelector().text("City")')
+        
+    };
+    get addState(){
+        return $('android=new UiSelector().text("State")')
+        
+    };
+    get zipCode(){
+        return $('android=new UiSelector().text("ZipCode")')
+        
+    };
+    get btnSave(){
+        return $('android=new UiSelector().resourceId("save")')
     }
     
     async realizarCadastro(fName, lName, phone, email, pass){
@@ -51,6 +81,31 @@ class CadastroPage{
         await this.btnSubmit.waitForDisplayed()
         await this.btnSubmit.click()
         
+
+    }
+    async submitAddress(name, num, address, city, state, code){
+        await this.addName.waitForDisplayed()
+        await this.addName.setValue(name)
+
+        await this.addNumber.waitForDisplayed()
+        await this.addNumber.setValue(num)
+
+        await this.address.waitForDisplayed()
+        await this.address.setValue(address)
+
+        await this.addCity.waitForDisplayed()
+        await this.addCity.setValue(city)
+
+        await this.addState.waitForDisplayed()
+        await this.addState.setValue(state)
+
+        await this.zipCode.waitForDisplayed()
+        await this.zipCode.setValue(code)
+
+        await this.btnSave.waitForDisplayed()
+        await this.btnSave.click()
+
+        await $('android=new UiSelector().resourceId("back")').click()
 
     }
 }
