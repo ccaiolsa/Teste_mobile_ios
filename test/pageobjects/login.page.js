@@ -12,7 +12,7 @@ class LoginPage{
     }
 
     get btnLogin () {
-        return $('android=new UiSelector().resourceId("btnLogin")');
+        return $('//android.view.ViewGroup[@content-desc="Login"]');
     }
     get btnSign(){
         return $('android=new UiSelector().text("Sign up")')
@@ -20,14 +20,15 @@ class LoginPage{
 
     async realizarLogin(email, pass){
 
-        await this.userEmail.waitForDisplayed()
+        await this.userEmail.waitForExist( {timeout: 5000} )
         await this.userEmail.setValue(email)
 
-        await this.userPass.waitForDisplayed()
+        await this.userPass.waitForExist( {timeout: 5000} )
         await this.userPass.setValue(pass)
 
-        await this.btnLogin.waitForDisplayed()
-        await this.btnLogin.click()
+        await this.btnLogin.waitForExist( {timeout: 5000} )
+        await this.btnLogin.doubleClick()
+
 
     }
 

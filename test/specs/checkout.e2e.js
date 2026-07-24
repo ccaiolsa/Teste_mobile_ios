@@ -12,7 +12,7 @@ describe('Funcionalidade carrinho', () => {
         let id = Math.floor(Math.random()*1000)
 
         // Login na conta
-        await home.btnProfile()
+        await home.acessarProfile()
         await login.realizarLogin(process.env.USER_EMAIL, process.env.USER_PASS)
 
         // Busca do produto

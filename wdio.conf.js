@@ -24,6 +24,17 @@ export const config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    suites: {
+        login:[
+            './test/specs/login.e2e.js'
+        ],
+        checkout:[
+            './test/specs/checkout.e2e.js'
+        ],
+        busca:[
+            './test/specs/busca.e2e.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -63,9 +74,9 @@ export const config = {
         "browserName": "Chorme",
         "appium:options": {
             "automationName": "UiAutomator2",
-            "platformVersion": "11.0",
+            "platformVersion": "13.0",
             "app": "ebac-store-mobile-tests/app/ebacshop.apks/ebacshop.apks",
-            "deviceName": "nightwatch-android-11",
+            "deviceName": "Android A23",
             "chromedriverAutodownload": true,
             "chromedriverExecutable": 'chromedriver-mobile/chromedriver.exe'
         }
@@ -141,13 +152,13 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', { outputDir: 'allure-results' }]],
+    //reporters: [['allure', { outputDir: 'allure-results' }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 70000
     },
 
     //
@@ -244,11 +255,11 @@ export const config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+    /*afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
             await browser.takeScreenshot();
         }
-    },
+    },*/
 
 
     /**
